@@ -1,15 +1,25 @@
-#\u8BBE\u7F6E\u7AEF\u53E3
 server:
   port: 6701
-#\u8BBE\u7F6E\u6570\u636E\u5E93\u8FDE\u63A5
 spring:
   datasource:
-    url: jdbc:sqlserver://211.152.53.151:1433;DatabaseName=PowerPMSC
+    url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: sa
-    password: sa@2012
-    testOnBorrow: true
-    validationQuery: SELECT 1
-  #\u8BBE\u7F6Ejpa\u6253\u5370\u65E5\u5FD7
+    password: P@ssw0rd
+    initial-size: 1
+    min-idle: 1
+    max-active: 20
+    test-on-borrow: true
+    max-wait: 60000
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+    test-While-Idle: true
+    test-on-return: false
+    pool-prepared-statements: false
+    max-pool-prepared-statement-per-connection-size: 20
+    filters: stat,wall,log4j,config
   jpa:
     show-sql: true
+power:
+  epsProjId: 00000000-0000-0000-0000-0000000000a4
