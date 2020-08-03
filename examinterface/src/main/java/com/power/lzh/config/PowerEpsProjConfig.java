@@ -9,4 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class PowerEpsProjConfig {
     private String epsProjId;
+
+    private String regHumName;
+
+    private String regHumId;
+
+    private String ownProjName;
+
+    private String ownProjId;
 }

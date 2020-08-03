@@ -1,18 +1,22 @@
 package com.power.lzh.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+/**
+ * 岗位信息
+ */
 @Entity
-@Table(name="PB_Department")
 @Data
-public class Department {
+@Table(name="PB_Position")
+public class Position {
+
     /**主键*/
     @Id
-    private String id;
+    private String Id;
 
     /**父键*/
     private String parentid;
@@ -20,22 +24,23 @@ public class Department {
     /**编号*/
     private String code;
 
-    /**名称*/
+    /**岗位名称*/
     private String name;
 
     /**长代码*/
     private String longcode;
 
-    /**序号*/
-    private String sequ;
+    /**部门id*/
+    private String deptid;
 
     /**更新时间*/
     private String upddate;
 
-    /**项目Id*/
+    /**项目id*/
     private String epsprojid;
 
     /**公司名称*/
     private String ownprojname;
+
 
 }

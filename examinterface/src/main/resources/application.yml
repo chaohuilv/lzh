@@ -1,5 +1,5 @@
 server:
-  port: 6701
+  port: 6702
 spring:
   datasource:
     url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
@@ -23,3 +23,13 @@ spring:
     show-sql: true
 power:
   epsProjId: 00000000-0000-0000-0000-0000000000a4
+  regHumName: 系统管理员
+  regHumId: ad000000-0000-0000-0000-000000000000
+  ownProjName: 内蒙古察哈尔新能源有限公司
+  ownProjId: 00000000-0000-0000-0000-0000000000a4
+exam:
+  appId: 231539
+  appKey: 0b9a4d9f2efe41aa9f6ff5215d218324
+  domainUrl: https://api.kaoshixing.com
+  achievementCode: 702
+  longinCode: 201

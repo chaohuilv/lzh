@@ -1,8 +1,8 @@
 package com.power.lzh.controller;
 
 import com.power.lzh.config.PowerEpsProjConfig;
-import com.power.lzh.entity.Department;
-import com.power.lzh.service.impl.DepartmentServiceImpl;
+import com.power.lzh.entity.Position;
+import com.power.lzh.service.impl.PositionServiceImpl;
 import com.power.lzh.utils.ResultVOUtil;
 import com.power.lzh.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dept")
-public class DepartmentController {
+@RequestMapping("/post")
+public class PositionController {
 
     @Autowired
-    private DepartmentServiceImpl departmentService;
+    private PositionServiceImpl positionService;
 
     @Autowired
     private PowerEpsProjConfig powerEpsProjConfig;
@@ -29,10 +29,9 @@ public class DepartmentController {
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "10") Integer size,
                          @Param(value = "update") String update){
-
         Pageable pageable = PageRequest.of(page-1,size);
-        Page<Department> departments = departmentService.findByEpsprojidAndUpdate(powerEpsProjConfig.getEpsProjId(),update,pageable);
-        int total = (int) departments.getTotalElements();
-        return ResultVOUtil.success(departments.getContent(),total);
+        Page<Position> positionPage = positionService.fiandAll(powerEpsProjConfig.getEpsProjId(),update,pageable);
+        int total = (int) positionPage.getTotalElements();
+        return ResultVOUtil.success(positionPage.getContent(),total);
     }
 }

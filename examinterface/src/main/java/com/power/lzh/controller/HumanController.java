@@ -1,8 +1,8 @@
 package com.power.lzh.controller;
 
-import com.power.lzh.config.PowerEpsProjConfig;
-import com.power.lzh.entity.Department;
-import com.power.lzh.service.impl.DepartmentServiceImpl;
+
+import com.power.lzh.entity.Human;
+import com.power.lzh.service.impl.HumanServiceImpl;
 import com.power.lzh.utils.ResultVOUtil;
 import com.power.lzh.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,14 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dept")
-public class DepartmentController {
+@RequestMapping("/user")
+public class HumanController {
 
     @Autowired
-    private DepartmentServiceImpl departmentService;
-
-    @Autowired
-    private PowerEpsProjConfig powerEpsProjConfig;
+    private HumanServiceImpl humanService;
 
     @GetMapping("/list")
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -31,8 +28,9 @@ public class DepartmentController {
                          @Param(value = "update") String update){
 
         Pageable pageable = PageRequest.of(page-1,size);
-        Page<Department> departments = departmentService.findByEpsprojidAndUpdate(powerEpsProjConfig.getEpsProjId(),update,pageable);
-        int total = (int) departments.getTotalElements();
-        return ResultVOUtil.success(departments.getContent(),total);
+        Page<Human> humanPage =  humanService.fiandAll(update,pageable);
+        int total = (int) humanPage.getTotalElements();
+        return ResultVOUtil.success(humanPage.getContent(),total);
     }
+
 }

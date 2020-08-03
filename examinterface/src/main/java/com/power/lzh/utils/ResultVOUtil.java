@@ -30,5 +30,4 @@ public class ResultVOUtil {
         resultVO.setMsg(msg);
         return resultVO;
     }
-
 }
