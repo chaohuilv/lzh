@@ -22,8 +22,6 @@ public class DepartmentController {
     @Autowired
     private DepartmentServiceImpl departmentService;
 
-    @Autowired
-    private PowerEpsProjConfig powerEpsProjConfig;
 
     @GetMapping("/list")
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -31,7 +29,7 @@ public class DepartmentController {
                          @Param(value = "update") String update){
 
         Pageable pageable = PageRequest.of(page-1,size);
-        Page<Department> departments = departmentService.findByEpsprojidAndUpdate(powerEpsProjConfig.getEpsProjId(),update,pageable);
+        Page<Department> departments = departmentService.findByEpsprojidAndUpdate(update,pageable);
         int total = (int) departments.getTotalElements();
         return ResultVOUtil.success(departments.getContent(),total);
     }

@@ -3,6 +3,7 @@ package com.power.lzh.service.impl;
 import com.power.lzh.dao.HumanDao;
 import com.power.lzh.entity.Human;
 import com.power.lzh.service.HumanService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 @Service
+@Slf4j
 public class HumanServiceImpl implements HumanService {
 
     @Autowired
@@ -31,6 +33,7 @@ public class HumanServiceImpl implements HumanService {
             }
         };
         Page<Human> positionPage = humanDao.findAll(specification,pageable);
+        log.info("【获取人员信息】userPage={}",positionPage);
         return positionPage;
     }
 

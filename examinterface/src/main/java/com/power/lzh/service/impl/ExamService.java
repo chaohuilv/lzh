@@ -9,6 +9,7 @@ import com.power.lzh.entity.Login;
 import com.power.lzh.entity.fromVO.ExamResultTotal;
 import com.power.lzh.entity.fromVO.ResultFromVO;
 import com.power.lzh.utils.ExamJWTUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class ExamService {
 
     @Autowired
@@ -65,6 +67,7 @@ public class ExamService {
             for (ResultFromVO result1:list) {
                 //返回有数据执行add赋值
                 if(result1.getSuccess() == true){
+                    log.info("【获取考试结果】userCode={},result={}",userCode,result1);
                     List<ExamResultTotal> examResultTotals = result1.getBizContent();
                     for (ExamResultTotal examResultTotal :examResultTotals) {
                         List<ExamResult> examResults = examResultTotal.getRows();
@@ -85,6 +88,8 @@ public class ExamService {
                             }
                         }
                     }
+                }else{
+                    log.error("【获取考试结果异常信息】userCode={},result={}",userCode,result);
                 }
             }
         }

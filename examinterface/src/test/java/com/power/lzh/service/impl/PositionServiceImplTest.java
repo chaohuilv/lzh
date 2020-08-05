@@ -23,6 +23,6 @@ class PositionServiceImplTest {
     @Test
     void fiandAll() {
         Pageable pageable = PageRequest.of(0,10);
-        Page<Position> positions = positionService.fiandAll(powerEpsProjConfig.getEpsProjId(),"2020-03-18",pageable);
+        Page<Position> positions = positionService.fiandAll("2020-03-18",pageable);
     }
 }

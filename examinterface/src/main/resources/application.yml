@@ -3,6 +3,7 @@ server:
 spring:
   datasource:
     url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
+    #url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=PowerPIPTest_0703
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: sa
     password: P@ssw0rd
@@ -20,7 +21,7 @@ spring:
     max-pool-prepared-statement-per-connection-size: 20
     filters: stat,wall,log4j,config
   jpa:
-    show-sql: true
+    show-sql: false
 power:
   epsProjId: 00000000-0000-0000-0000-0000000000a4
   regHumName: 系统管理员

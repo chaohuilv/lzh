@@ -1,8 +1,10 @@
 package com.power.lzh.vo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class ResultVO<T> {
     /** 错误码. */
     private Integer code;

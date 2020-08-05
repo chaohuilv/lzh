@@ -22,15 +22,12 @@ public class PositionController {
     @Autowired
     private PositionServiceImpl positionService;
 
-    @Autowired
-    private PowerEpsProjConfig powerEpsProjConfig;
-
     @GetMapping("/list")
     public ResultVO list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                          @RequestParam(value = "size", defaultValue = "10") Integer size,
                          @Param(value = "update") String update){
         Pageable pageable = PageRequest.of(page-1,size);
-        Page<Position> positionPage = positionService.fiandAll(powerEpsProjConfig.getEpsProjId(),update,pageable);
+        Page<Position> positionPage = positionService.fiandAll(update,pageable);
         int total = (int) positionPage.getTotalElements();
         return ResultVOUtil.success(positionPage.getContent(),total);
     }

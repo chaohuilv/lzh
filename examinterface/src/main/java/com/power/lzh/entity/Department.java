@@ -2,12 +2,14 @@ package com.power.lzh.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name="PB_Department")
+@NoArgsConstructor
 @Data
 public class Department {
     /**主键*/

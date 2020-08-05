@@ -25,7 +25,7 @@ class DepartmentServiceImplTest {
     void findByEpsprojidAndUpdate() {
 
         Pageable pageable = PageRequest.of(1,10);
-        Page<Department> departments = departmentService.findByEpsprojidAndUpdate("00000000-0000-0000-0000-0000000000a4","2020-05-11",pageable);
+        Page<Department> departments = departmentService.findByEpsprojidAndUpdate("2020-05-11",pageable);
         System.out.println(departments);
     }
 }

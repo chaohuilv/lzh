@@ -28,7 +28,7 @@ public class ExamController {
 
     @GetMapping("/login")
     @ResponseBody
-    public ResultVO getPostUrl(@RequestParam(value = "code",defaultValue = "zhangsan") String code) {
+    public ResultVO getPostUrl(@RequestParam(value = "code") String code) {
         Human human = humanService.findAllUserCode(code);
         JSONObject json = new JSONObject();
         json.put("user_id", code);
@@ -40,7 +40,7 @@ public class ExamController {
     }
 
     @GetMapping("/authorize")
-    public String getLogin(@RequestParam(value = "code",defaultValue = "zhangsan") String code) {
+    public String getLogin(@RequestParam(value = "code") String code) {
         Human human = humanService.findAllUserCode(code);
         JSONObject json = new JSONObject();
         json.put("user_id", code);
