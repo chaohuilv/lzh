@@ -31,10 +31,9 @@ public class DepartmentServiceImpl implements DepartmentService {
             @Override
             public Predicate toPredicate(Root root, CriteriaQuery criteriaQuery, CriteriaBuilder criteriaBuilder) {
                 Predicate predicate = criteriaBuilder.conjunction();
-                predicate.getExpressions().add(criteriaBuilder.equal(root.get("epsprojid"), powerEpsProjConfig.getEpsProjId()));
+                //predicate.getExpressions().add(criteriaBuilder.equal(root.get("epsprojid"), powerEpsProjConfig.getEpsProjId()));
                 predicate.getExpressions().add(criteriaBuilder.greaterThanOrEqualTo(root.get("upddate").as(String.class), update));
                 //predicate.getExpressions().add(criteriaBuilder.lessThanOrEqualTo(root.get("createTime").as(String.class), date));
-
                 return predicate;
             }
         };

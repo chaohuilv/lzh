@@ -1,23 +1,16 @@
-package com.power.lzh.entity;
+package com.power.lzh.entity.fromVO;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * 人员
  */
-@Entity
 @Data
 @NoArgsConstructor
-@Table(name="PB_Human")
-public class Human {
+public class HumanVO {
     /**主键*/
-    @Id
     private String id;
 
     /**人员编号*/

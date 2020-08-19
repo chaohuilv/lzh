@@ -1,9 +1,11 @@
 server:
   port: 6702
 spring:
+  jackson:
+    default-property-inclusion: always
   datasource:
-    url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
-    #url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=PowerPIPTest_0703
+    #url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
+    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=PowerPIPTest_0703
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: sa
     password: P@ssw0rd
@@ -22,6 +24,7 @@ spring:
     filters: stat,wall,log4j,config
   jpa:
     show-sql: false
+
 power:
   epsProjId: 00000000-0000-0000-0000-0000000000a4
   regHumName: 系统管理员
@@ -29,8 +32,13 @@ power:
   ownProjName: 内蒙古察哈尔新能源有限公司
   ownProjId: 00000000-0000-0000-0000-0000000000a4
 exam:
-  appId: 231539
-  appKey: 0b9a4d9f2efe41aa9f6ff5215d218324
-  domainUrl: https://api.kaoshixing.com
+  appId: 1
+  appKey: 9f08551fa9bf4633b0da3c0b3eaa028a
+  #domainUrl: https://api.kaoshixing.com
+  domainUrl: http://39.104.110.153
   achievementCode: 702
   longinCode: 201
+task:
+  corePoolSize: 10
+  maxPoolSize: 200
+  queueCapacity: 10
