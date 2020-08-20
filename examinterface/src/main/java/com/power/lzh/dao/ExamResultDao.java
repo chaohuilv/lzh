@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ExamResultDao extends JpaRepository<ExamResult,String> {
 
     ExamResult findAllByExamInfoId(Integer examInfoId);
+
+    ExamResult findAllByExamResultsId(Integer examResultsId);
 }

@@ -73,7 +73,7 @@ public class ExamService {
                     for (ExamResultTotal examResultTotal :examResultTotals) {
                         List<ExamResult> examResults = examResultTotal.getRows();
                         for (ExamResult examResult : examResults) {
-                            ExamResult exam = examResultDao.findAllByExamInfoId(examResult.getExamInfoId());
+                            ExamResult exam = examResultDao.findAllByExamResultsId(examResult.getExamResultsId());
                             if (exam == null) {
                                 examResult.setStatusExam(examResult.getStatus());
                                 examResult.setId(UUID.randomUUID().toString());
