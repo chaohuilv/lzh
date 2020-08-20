@@ -14,6 +14,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -33,7 +34,7 @@ public class HumanServiceImpl implements HumanService {
             }
         };
         Page<Human> positionPage = humanDao.findAll(specification,pageable);
-        log.info("【获取人员信息】userPage={}",positionPage);
+        log.info(LocalDateTime.now()+" 【获取人员信息】userPage={}",positionPage);
         return positionPage;
     }
 

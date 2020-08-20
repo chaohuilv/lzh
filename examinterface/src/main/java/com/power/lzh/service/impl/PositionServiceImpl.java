@@ -15,6 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.time.LocalDateTime;
 
 @Service
 @Slf4j
@@ -39,7 +40,7 @@ public class PositionServiceImpl implements PositionService {
             }
         };
         Page<Position> positionPage = positionDao.findAll(specification,pageable);
-        log.info("【获取岗位信息】positionPage={}",positionPage);
+        log.info(LocalDateTime.now()+" 【获取岗位信息】positionPage={}",positionPage);
         return positionPage;
     }
 }

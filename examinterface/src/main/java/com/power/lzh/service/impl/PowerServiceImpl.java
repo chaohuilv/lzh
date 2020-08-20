@@ -18,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.jws.WebService;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +50,7 @@ public class PowerServiceImpl implements PowerService {
         Pageable pageable = PageRequest.of(page-1,size);
         Page<Department> departmentPage = departmentService.findByEpsprojidAndUpdate(update,pageable);
         int total = (int) departmentPage.getTotalElements();
-        log.info("【GetDept返回信息】result={}",JSONObject.toJSONString(ResultVOUtil.success(departmentPage.getContent(),total)),SerializerFeature.WriteMapNullValue);
+        log.info(LocalDateTime.now()+" 【GetDept返回信息】result={}",JSONObject.toJSONString(ResultVOUtil.success(departmentPage.getContent(),total)),SerializerFeature.WriteMapNullValue);
         return  JSONObject.toJSONString(ResultVOUtil.success(departmentPage.getContent(),total),SerializerFeature.WriteMapNullValue);
     }
 
@@ -66,7 +67,7 @@ public class PowerServiceImpl implements PowerService {
         Page<Position> positionPage = positionService.fiandAll(update, pageable);
         int total = (int) positionPage.getTotalElements();
         String postionJson = JSONObject.toJSONString(ResultVOUtil.success(positionPage.getContent(),total), SerializerFeature.WriteMapNullValue);
-        log.info("【GetPosition返回信息】result={}",postionJson);
+        log.info(LocalDateTime.now()+" 【GetPosition返回信息】result={}",postionJson);
         return  postionJson;
     }
 
@@ -90,12 +91,12 @@ public class PowerServiceImpl implements PowerService {
                 BeanUtils.copyProperties(humans,humanVO);
                 humanVOS.add(humanVO);
             }else{
-                log.error("【人员编号】code={},不是正确的手机号码",humans.getCode());
+                log.error(LocalDateTime.now()+" 【人员编号】code={},不是正确的手机号码",humans.getCode());
             }
         }
         int total = (int) humanPage.getTotalElements();
         String userJson = JSONObject.toJSONString(ResultVOUtil.success(humanVOS,total),SerializerFeature.WriteMapNullValue);
-        log.info("【GetHuman返回信息】result={}",userJson);
+        log.info(LocalDateTime.now()+" 【GetHuman返回信息】result={}",userJson);
         return  userJson;
     }
 }

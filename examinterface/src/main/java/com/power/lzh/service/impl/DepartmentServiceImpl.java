@@ -15,6 +15,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.time.LocalDateTime;
 
 @Service
 @Slf4j
@@ -38,7 +39,7 @@ public class DepartmentServiceImpl implements DepartmentService {
             }
         };
         Page<Department> departmentPage = departmentDao.findAll(specification,pageable);
-        log.info("【获取部门信息】deptPage={}",departmentPage);
+        log.info(LocalDateTime.now()+" 【获取部门信息】deptPage={}",departmentPage);
         return departmentPage;
     }
 

@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -67,7 +68,7 @@ public class ExamService {
             for (ResultFromVO result1:list) {
                 //返回有数据执行add赋值
                 if(result1.getSuccess() == true){
-                    log.info("【获取考试结果】userCode={},result={}",userCode,result1);
+                    log.info(LocalDateTime.now()+" 【获取考试结果】userCode={},result={}",userCode,result1);
                     List<ExamResultTotal> examResultTotals = result1.getBizContent();
                     for (ExamResultTotal examResultTotal :examResultTotals) {
                         List<ExamResult> examResults = examResultTotal.getRows();
@@ -89,7 +90,7 @@ public class ExamService {
                         }
                     }
                 }else{
-                    log.error("【获取考试结果异常信息】userCode={},result={}",userCode,result);
+                    log.error(LocalDateTime.now()+" 【获取考试结果异常信息】userCode={},result={}",userCode,result);
                 }
             }
         }
