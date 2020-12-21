@@ -6,6 +6,9 @@ import com.power.lzh.service.impl.ExamService;
 import com.power.lzh.service.impl.HumanServiceImpl;
 import com.power.lzh.utils.ResultVOUtil;
 import com.power.lzh.vo.ResultVO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/exam")
+@Api("考试星信息API")
 public class ExamController {
 
     @Autowired
@@ -28,6 +32,8 @@ public class ExamController {
 
     @GetMapping("/login")
     @ResponseBody
+    @ApiOperation(value = "登录", notes = "根据人员编号登录系统,不重定向登录后的地址。")
+    @ApiImplicitParam(name = "code", value = "人员编号",  paramType = "path", required = true, dataType =  "String")
     public ResultVO getPostUrl(@RequestParam(value = "code") String code) {
         Human human = humanService.findAllUserCode(code);
         JSONObject json = new JSONObject();
@@ -40,6 +46,8 @@ public class ExamController {
     }
 
     @GetMapping("/authorize")
+    @ApiOperation(value = "登录", notes = "根据人员编号登录系统,重定向登录后的地址。")
+    @ApiImplicitParam(name = "code", value = "人员编号",  paramType = "query", required = true, dataType =  "String")
     public String getLogin(@RequestParam(value = "code") String code) {
         Human human = humanService.findAllUserCode(code);
         JSONObject json = new JSONObject();
@@ -58,7 +66,8 @@ public class ExamController {
      */
     @GetMapping("/achievement")
     @ResponseBody
-    public ResultVO getAchievement(@RequestParam(value = "code",defaultValue = "") String code){
+    @ApiOperation(value = "考试信息", notes = "根据人员编号获取考试信息。")
+    public ResultVO getAchievement(@RequestParam(value = "code", defaultValue= "") String code){
         JSONObject json = new JSONObject();
         //编号为空获取所有
         if(code.equals("")){

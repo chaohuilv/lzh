@@ -45,4 +45,16 @@ class PowerServiceImplTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    void powerGetDept() {
+        JaxWsDynamicClientFactory dcflient=JaxWsDynamicClientFactory.newInstance();
+        Client client=dcflient.createClient("http://127.0.0.1:1100/webService/Power.CESE.WebService.asmx?wsdl");
+        try{
+            Object[] objects=client.invoke("GetDept",1,1,"2020-01-01");
+            System.out.println("getDept 调用结果："+objects[0].toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

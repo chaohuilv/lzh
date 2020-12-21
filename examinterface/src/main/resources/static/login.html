@@ -1,0 +1,31 @@
+<script typet="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        debugger;
+        $.ajax({
+            type:"post",
+            url:"/pdf/stamp",
+            data:{id:getQueryString("id")},
+            dataType:"json",
+            async:false,
+            success:function(data){
+                if(data.code == 201){
+                    alert(data.msg);
+                }else{
+                    window.open(data.data,"_self");
+                }
+            },
+            error: function(e) {
+
+            }
+        });
+    });
+
+
+    function getQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+</script>

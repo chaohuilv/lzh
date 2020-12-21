@@ -2,6 +2,7 @@ package com.power.lzh.utils;
 
 import com.power.lzh.vo.ResultVO;
 
+
 public class ResultVOUtil {
     public static ResultVO success(Object object) {
         ResultVO resultVO = new ResultVO();

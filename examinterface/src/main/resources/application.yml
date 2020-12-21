@@ -5,10 +5,11 @@ spring:
     default-property-inclusion: always
   datasource:
     #url: jdbc:sqlserver://39.104.86.43:1433;DatabaseName=PowerPIPTest_0703
-    url: jdbc:sqlserver://127.0.0.1:1433;DatabaseName=PowerPIPTest_0703
+    url: jdbc:sqlserver://10.150.172.49:1433;DatabaseName=PowerPMS20201107
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     username: sa
-    password: P@ssw0rd
+    #password: P@ssw0rd
+    password: Abc-12345
     initial-size: 1
     min-idle: 1
     max-active: 20
@@ -23,7 +24,20 @@ spring:
     max-pool-prepared-statement-per-connection-size: 20
     filters: stat,wall,log4j,config
   jpa:
-    show-sql: false
+    show-sql: true
+  resources:
+    static-locations:
+      - classpath:resources
+      - classpath:static
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+
+#是否激活 swagger true or false
+swagger:
+  enable: true
 
 power:
   epsProjId: 00000000-0000-0000-0000-0000000000a4
@@ -42,3 +56,13 @@ task:
   corePoolSize: 10
   maxPoolSize: 200
   queueCapacity: 10
+
+sigpdf:
+  url: http://sign.kinggrid.com:80/iSignatureServer/OfficeServer.jsp
+  key: T001
+  password: 123456
+  sessionUrl: D:/桌面/
+
+project:
+  url: http://127.0.0.1:6702
+  ftpUrl: http://127.0.0.1:6703

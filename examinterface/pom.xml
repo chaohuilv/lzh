@@ -17,9 +17,20 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <!-- 文件拷贝时的编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- 编译时的编码 -->
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     </properties>
 
     <dependencies>
+        <!--热部署start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <!--热部署end-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -32,6 +43,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!-- swagger_start -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.4.0</version>
+        </dependency>
+        <!-- swagger_end -->
 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -81,6 +104,140 @@
             <version>5.3.5.Final</version>
         </dependency>
         <!--整合cxf发布webservice接口end-->
+        <!--pdf金格签章start-->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>3.2.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>jaxen</groupId>
+            <artifactId>jaxen</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.67</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.67</version>
+        </dependency>
+        <dependency>
+            <groupId>iSignature</groupId>
+            <artifactId>iSignature_PDF_API_V6.0.0.648</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/iSignature_PDF_API_V6.0.0.648.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>kgbc-jdk15on</groupId>
+            <artifactId>kgbc-jdk15on-150</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/kgbc-jdk15on-150.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>KGitext</groupId>
+            <artifactId>KGitext-asian</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/KGitext-asian.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>PdfRenderer</groupId>
+            <artifactId>PdfRenderer_0.9.1</artifactId>
+            <version>1.9.1</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/PdfRenderer_0.9.1.jar</systemPath>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.10.9</version>
+        </dependency>-->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.11</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-jdk5</artifactId>
+            <version>17.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>5.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.lingala.zip4j</groupId>
+            <artifactId>zip4j</artifactId>
+            <version>2.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>iSignature</groupId>
+            <artifactId>iSignature_OFD_API_V2.0.0.90</artifactId>
+            <version>2.0.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/iSignature_OFD_API_V2.0.0.90.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>king-fast</groupId>
+            <artifactId>king-fast</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/king-fast.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>pdfviewer</groupId>
+            <artifactId>pdfviewer_V2.0.0.98</artifactId>
+            <version>2.0.0</version>
+            <scope>system</scope>
+            <systemPath>${pom.basedir}/src/main/resources/lib/pdfviewer_V2.0.0.98.jar</systemPath>
+        </dependency>
+        <!--jsp页面使用jstl标签-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!--用于编译jsp-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>8.5.37</scope>
+        </dependency>
+        <!--pdf金格签章end-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -100,6 +257,35 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+           <!-- <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <classpathScope>test</classpathScope>
+                </configuration>
+            </plugin>-->
         </plugins>
+        <!--<resources>
+            <resource>
+                <directory>src/main/webapp/WEB-INF/jsp</directory>
+                &lt;!&ndash;如果使用springboot自带的tomcat启动，则使用如下配置jsp路径&ndash;&gt;
+                <targetPath>META-INF/resources</targetPath>
+                &lt;!&ndash;如果使用maven启动本地tomcat启动，则使用如下配置&ndash;&gt;
+                &lt;!&ndash;<targetPath>/WEB-INF/jsp</targetPath>&ndash;&gt;
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>-->
     </build>
+
+
 </project>
