@@ -43,15 +43,15 @@ code | Int | 状态码
 msg	| String | 状态信息
 total | Int | 总条数
 Data | 数组 | 部门信息集合
-    id | String | 主键
-    parentid | String | 父键
-    code | String | 部门编号
-    name | String | 部门名称
-    longcode | String | 长编码，记录二叉树信息
-    sequ | Int | 序号
-    upddate | Date | 时间
-    epsprojid | String | 公司id
-    ownprojname | String | 公司名称
+id | String | 主键
+parentid | String | 父键
+code | String | 部门编号
+name | String | 部门名称
+longcode | String | 长编码，记录二叉树信息
+sequ | Int | 序号
+upddate | Date | 时间
+epsprojid | String | 公司id
+ownprojname | String | 公司名称
 ```json
 {
     "code": 0,
@@ -89,15 +89,15 @@ code | Int | 状态码
 msg	| String | 状态信息
 total | Int | 总条数
 Data | 数组 | 岗位信息集合
-    id | String | 主键
-    parentid | String | 父键
-    code | String | 岗位编号
-    name | String | 岗位名称
-    longcode | String | 长编码，记录二叉树信息
-    sequ | Int | 序号
-    upddate | Date | 时间
-    epsprojid | String | 公司id
-    ownprojname | String | 公司名称
+id | String | 主键
+parentid | String | 父键
+code | String | 岗位编号
+name | String | 岗位名称
+longcode | String | 长编码，记录二叉树信息
+sequ | Int | 序号
+upddate | Date | 时间
+epsprojid | String | 公司id
+ownprojname | String | 公司名称
 
 ```json
 {
@@ -136,13 +136,13 @@ code | Int | 状态码
 msg	| String | 状态信息
 total | Int | 总条数
 Data | 数组 | 人员信息集合
-    id | String | 主键
-    code | String | 人员编号
-    name | String | 人员名称
-    deptid | String | 部门id
-    posiid | String | 岗位id
-    upddate | Date | 时间
-    mobile | String | 手机号码
+id | String | 主键
+code | String | 人员编号
+name | String | 人员名称
+deptid | String | 部门id
+posiid | String | 岗位id
+upddate | Date | 时间
+mobile | String | 手机号码
 ```json
 {
    "code": 0,
