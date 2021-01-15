@@ -31,6 +31,7 @@ public class ExamController {
 
 
     @GetMapping("/login")
+    @CrossOrigin
     @ResponseBody
     @ApiOperation(value = "登录", notes = "根据人员编号登录系统,不重定向登录后的地址。")
     @ApiImplicitParam(name = "code", value = "人员编号",  paramType = "path", required = true, dataType =  "String")
@@ -46,6 +47,7 @@ public class ExamController {
     }
 
     @GetMapping("/authorize")
+    @CrossOrigin
     @ApiOperation(value = "登录", notes = "根据人员编号登录系统,重定向登录后的地址。")
     @ApiImplicitParam(name = "code", value = "人员编号",  paramType = "query", required = true, dataType =  "String")
     public String getLogin(@RequestParam(value = "code") String code) {
@@ -65,6 +67,7 @@ public class ExamController {
      * @return
      */
     @GetMapping("/achievement")
+    @CrossOrigin
     @ResponseBody
     @ApiOperation(value = "考试信息", notes = "根据人员编号获取考试信息。")
     public ResultVO getAchievement(@RequestParam(value = "code", defaultValue= "") String code){
