@@ -1,5 +1,7 @@
 package com.power.lzh.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.power.lzh.dao.HumanDao;
 import com.power.lzh.entity.Human;
 import com.power.lzh.service.HumanService;
@@ -34,7 +36,8 @@ public class HumanServiceImpl implements HumanService {
             }
         };
         Page<Human> positionPage = humanDao.findAll(specification,pageable);
-        log.info(LocalDateTime.now()+" 【获取人员信息】userPage={}",positionPage);
+        log.info(LocalDateTime.now()+" 【获取人员信息】userPage={}", JSON.toJSONString(positionPage.getContent(), SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteDateUseDateFormat));
         return positionPage;
     }
 

@@ -1,5 +1,7 @@
 package com.power.lzh.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.power.lzh.config.PowerEpsProjConfig;
 import com.power.lzh.dao.PositionDao;
 import com.power.lzh.entity.Position;
@@ -40,7 +42,8 @@ public class PositionServiceImpl implements PositionService {
             }
         };
         Page<Position> positionPage = positionDao.findAll(specification,pageable);
-        log.info(LocalDateTime.now()+" 【获取岗位信息】positionPage={}",positionPage);
+        log.info(LocalDateTime.now()+" 【获取岗位信息】positionPage={}", JSON.toJSONString(positionPage.getContent(), SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteDateUseDateFormat));
         return positionPage;
     }
 }

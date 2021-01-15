@@ -14,10 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dept")
@@ -28,7 +25,7 @@ public class DepartmentController {
     private DepartmentServiceImpl departmentService;
 
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     @ApiOperation(value = "部门查询(分页)", notes = "根据更新时间模糊查询部门信息")
     @ApiImplicitParams({
             @ApiImplicitParam(name="page",value="页码",paramType="query",dataType="Integer",defaultValue="1"),

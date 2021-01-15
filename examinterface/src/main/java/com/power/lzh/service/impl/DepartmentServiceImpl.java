@@ -1,5 +1,7 @@
 package com.power.lzh.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.power.lzh.config.PowerEpsProjConfig;
 import com.power.lzh.dao.DepartmentDao;
 import com.power.lzh.entity.Department;
@@ -39,7 +41,8 @@ public class DepartmentServiceImpl implements DepartmentService {
             }
         };
         Page<Department> departmentPage = departmentDao.findAll(specification,pageable);
-        log.info(LocalDateTime.now()+" 【获取部门信息】deptPage={}",departmentPage);
+        log.info(LocalDateTime.now()+" 【获取部门信息】deptPage={}", JSON.toJSONString(departmentPage.getContent(), SerializerFeature.PrettyFormat, SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteDateUseDateFormat));
         return departmentPage;
     }
 

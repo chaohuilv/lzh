@@ -49,7 +49,7 @@ exam:
   appId: 1
   appKey: 9f08551fa9bf4633b0da3c0b3eaa028a
   #domainUrl: https://api.kaoshixing.com
-  domainUrl: http://39.104.110.153
+  domainUrl: http://10.0.200.2
   achievementCode: 702
   longinCode: 201
 task:
